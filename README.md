@@ -1,2 +1,2 @@
 # show_imuData
-Processing: Show imu data
+Processing: Shows imu data.
