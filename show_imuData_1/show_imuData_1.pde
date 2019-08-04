@@ -29,7 +29,7 @@ void setup()  {
   colorMode(RGB, 256); 
   frameRate(60);
 
-  String portName = "COM6";
+  String portName = "COM16";
 
   myPort = new Serial(this, portName, 115200);
   myPort.clear();
@@ -118,21 +118,24 @@ void draw()  {
     lights();
     
     // tweaks the look of the cuboid
-    int x_rotation = 90;
-  
+    int x_rotation = -90;
+    int y_rotation = 0;
+    int z_rotation = 0;
+    
     // show data
     pushMatrix(); 
     translate(width/2, height/2, -50); 
     rotateX(radians(-angle_x - x_rotation));
-    rotateY(radians(-angle_y));
+    rotateY(radians(angle_y + y_rotation));
+    rotateZ(radians(angle_z + z_rotation));
     draw_rect(0, 255, 0);
-    popMatrix(); 
+    popMatrix();
       
     textSize(24);
-    String datStr = "(" + (int) angle_x + ", " + (int) angle_y + ")";
+    String datStr = "(" + (int) angle_x + ", " + (int) angle_y + ", " + (int) angle_z + ")";
       
     fill(0, 255, 0);
-    text("Kalman filter", (int) (width/2-80), 25);
+    text("Madgwick filter", (int) (width/2-80), 25);
     text(datStr, (int) (width/2-80), 50);
       
     
@@ -154,7 +157,7 @@ void serialEvent(Serial p) {
       if (type.equals("DEL:")) {
         dt = float(dataval);
       }
-      else if (type.equals("KFI:")) {
+      else if (type.equals("MDF:")) {
         String data[] = split(dataval, ',');
         angle_x = float(data[0]);
         angle_y = float(data[1]);
