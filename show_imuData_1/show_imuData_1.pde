@@ -29,7 +29,7 @@ void setup()  {
   colorMode(RGB, 256); 
   frameRate(60);
 
-  String portName = "COM16";
+  String portName = "COM3";
 
   myPort = new Serial(this, portName, 115200);
   myPort.clear();
@@ -117,17 +117,17 @@ void draw()  {
     background(0);
     lights();
     
-    // tweaks the look of the cuboid
+    // rotate the coordinate system to match imu coordinate system (left-handed)
+    // x - right, y - down, z - back --> x - right, y - front, z - down
     int x_rotation = -90;
-    int y_rotation = 0;
-    int z_rotation = 0;
     
     // show data
     pushMatrix(); 
-    translate(width/2, height/2, -50); 
-    rotateX(radians(-angle_x - x_rotation));
-    rotateY(radians(angle_y + y_rotation));
-    rotateZ(radians(angle_z + z_rotation));
+    translate(width/2, height/2, -50);
+    rotateX(radians(x_rotation));
+    rotateZ(radians(angle_z));
+    rotateY(radians(angle_y));
+    rotateX(radians(angle_x));
     draw_rect(0, 255, 0);
     popMatrix();
       
