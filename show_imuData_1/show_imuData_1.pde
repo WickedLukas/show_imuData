@@ -29,7 +29,7 @@ void setup()  {
   colorMode(RGB, 256); 
   frameRate(60);
 
-  String portName = "COM3";
+  String portName = "COM7";
 
   myPort = new Serial(this, portName, 115200);
   myPort.clear();
@@ -80,35 +80,35 @@ void draw_rect(int r, int g, int b) {
   beginShape(QUADS);
   
   fill(r, g, b);
-  vertex(-1,  1.5,  0.25);
-  vertex( 1,  1.5,  0.25);
-  vertex( 1, -1.5,  0.25);
-  vertex(-1, -1.5,  0.25);
+  vertex(-1.5,  1,  0.25);
+  vertex( 1.5,  1,  0.25);
+  vertex( 1.5, -1,  0.25);
+  vertex(-1.5, -1,  0.25);
 
-  vertex( 1,  1.5,  0.25);
-  vertex( 1,  1.5, -0.25);
-  vertex( 1, -1.5, -0.25);
-  vertex( 1, -1.5,  0.25);
+  vertex( 1.5,  1,  0.25);
+  vertex( 1.5,  1, -0.25);
+  vertex( 1.5, -1, -0.25);
+  vertex( 1.5, -1,  0.25);
 
-  vertex( 1,  1.5, -0.25);
-  vertex(-1,  1.5, -0.25);
-  vertex(-1, -1.5, -0.25);
-  vertex( 1, -1.5, -0.25);
+  vertex( 1.5,  1, -0.25);
+  vertex(-1.5,  1, -0.25);
+  vertex(-1.5, -1, -0.25);
+  vertex( 1.5, -1, -0.25);
 
-  vertex(-1,  1.5, -0.25);
-  vertex(-1,  1.5,  0.25);
-  vertex(-1, -1.5,  0.25);
-  vertex(-1, -1.5, -0.25);
+  vertex(-1.5,  1, -0.25);
+  vertex(-1.5,  1,  0.25);
+  vertex(-1.5, -1,  0.25);
+  vertex(-1.5, -1, -0.25);
 
-  vertex(-1,  1.5, -0.25);
-  vertex( 1,  1.5, -0.25);
-  vertex( 1,  1.5,  0.25);
-  vertex(-1,  1.5,  0.25);
+  vertex(-1.5,  1, -0.25);
+  vertex( 1.5,  1, -0.25);
+  vertex( 1.5,  1,  0.25);
+  vertex(-1.5,  1,  0.25);
 
-  vertex(-1, -1.5, -0.25);
-  vertex( 1, -1.5, -0.25);
-  vertex( 1, -1.5,  0.25);
-  vertex(-1, -1.5,  0.25);
+  vertex(-1.5, -1, -0.25);
+  vertex( 1.5, -1, -0.25);
+  vertex( 1.5, -1,  0.25);
+  vertex(-1.5, -1,  0.25);
 
   endShape();
 }
