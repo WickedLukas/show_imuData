@@ -26,10 +26,10 @@ int t;
 void setup()  { 
   size(1000, 1000, P3D);
   noStroke();
-  colorMode(RGB, 256); 
+  colorMode(RGB, 256);
   frameRate(60);
 
-  String portName = "COM7";
+  String portName = "/dev/ttyACM0";
 
   myPort = new Serial(this, portName, 115200);
   myPort.clear();
